@@ -1,0 +1,53 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Bad Mushrooms</title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+    
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+function preload() {
+
+    game.load.image('sky', 'assets/sky.png');
+    game.load.image('bmushroom', 'assets/blue-mushroom.png');
+    game.load.image('rmushroom', 'assets/red-mushroom.png');
+    game.load.image('bmb', 'assets/bmb.png');
+    game.load.image('bpush', 'assets/b-push.png');
+    game.load.image('grass', 'assets/grass.png');
+    game.load.image('marrow', 'assets/marrow.png');
+    
+    
+}
+
+function create() {
+    
+    game.add.sprite(0, 0, 'sky');
+    game.add.sprite(0, 550, 'rmushroom');
+    game.add.sprite(750, 550, 'bmushroom');
+    
+    
+    game.add.sprite(100, 200, 'bmb');
+    game.add.sprite(150, 200, 'bpush');
+    game.add.sprite(250, 300, 'marrow');
+    game.add.sprite(50, 400, 'grass');
+    
+}
+
+function update() {
+}
+
+</script>
+
+</body>
+</html>
