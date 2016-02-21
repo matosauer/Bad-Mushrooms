@@ -29,7 +29,10 @@ function preload() {
     
     
 }
-
+    
+var bmb;
+//var button;
+    
 function create() {
     
     game.add.sprite(0, 0, 'sky');
@@ -37,16 +40,47 @@ function create() {
     game.add.sprite(750, 550, 'bmushroom');
     
     
-    game.add.sprite(100, 200, 'bmb');
-    game.add.sprite(150, 200, 'bpush');
+    bmb = game.add.sprite(100, 200, 'bmb');
+    
+    ///game.add.sprite(150, 200, 'bpush');
+    
     game.add.sprite(250, 300, 'marrow');
     game.add.sprite(50, 400, 'grass');
     
+    
+    var text = "Bad Mushrooms";
+    var style = { font: "45px Arial", fill: "#cc4422", align: "center" };
+    var t = game.add.text(game.world.centerX-150, 0, text, style);
+
+    
+    //  Our world size is 1600 x 1200 pixels
+    //game.world.setBounds(0, 0, 1600, 1200);
+    
+    game.physics.startSystem(Phaser.Physics.P2JS);
+    
+    
+    game.physics.p2.enable(bmb, true);
+    
+    game.physics.p2.gravity.y = 100;
+    game.physics.p2.restitution = 0.2;
+    
+    
+    bmb.body.velocity.x = -200;
+    bmb.body.velocity.y = -200;
+    
+    
+    game.add.button(game.world.centerX, game.world.centerY, 'bpush', actionOnClick, this, 1, 0, 2);
+
 }
 
 function update() {
 }
 
+function actionOnClick(){
+    bmb.body.velocity.x = -200;
+    bmb.body.velocity.y = -200;
+}
+    
 </script>
 
 </body>
